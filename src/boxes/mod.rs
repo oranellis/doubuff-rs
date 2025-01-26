@@ -10,17 +10,17 @@ pub struct TerminalBoxes {
 }
 
 impl TerminalBoxes {
-    pub fn new_thin(terminal_size: &Vec2) -> TerminalBoxes {
+    pub fn new_thin(terminal_size: Vec2) -> TerminalBoxes {
         TerminalBoxes {
-            terminal_size: *terminal_size,
+            terminal_size,
             border_bits: vec![vec![false; terminal_size.col as usize]; terminal_size.row as usize],
             border_fn: thin_rounded_border_from_directions,
         }
     }
 
-    pub fn new_thick(terminal_size: &Vec2) -> TerminalBoxes {
+    pub fn new_thick(terminal_size: Vec2) -> TerminalBoxes {
         TerminalBoxes {
-            terminal_size: *terminal_size,
+            terminal_size,
             border_bits: vec![vec![false; terminal_size.col as usize]; terminal_size.row as usize],
             border_fn: thick_border_from_directions,
         }
