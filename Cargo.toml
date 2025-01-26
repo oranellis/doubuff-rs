@@ -1,0 +1,8 @@
+[package]
+name = "doubuff"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+crossterm = "0.28.1"
+terminal-vec2 = { git = "https://github.com/oranellis/term-vec2-rs.git", version = "0.1.0" }
