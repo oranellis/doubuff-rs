@@ -4,12 +4,12 @@ A thin wrapper around crossterm to allow double buffering.
 
 ## Features
 
-This library supports (more coming soon or never hehe)
+This library supports
 
 - [x] Moving the cursor
 - [x] Printing coloured text
 - [x] Flushing the buffer to the screen
-- [ ] Diffed screen updates (only writing changes)
+- [x] Diffed screen updates (only draws changes to the screen)
 - [x] Drawing thin and thick border boxes
 
 ## Usage

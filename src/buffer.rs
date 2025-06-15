@@ -111,7 +111,9 @@ impl TerminalBuffer {
                 }
                 (Some(nc), Some(wsc)) => {
                     if nc.colour != wsc.colour || nc.bold != wsc.bold {
-                        working_styled_chunk.take().map(|sc| write_chunks.push(sc));
+                        if let Some(sc) = working_styled_chunk.take() {
+                            write_chunks.push(sc)
+                        }
                         working_styled_chunk =
                             wsc_from_char_and_index(nc, index, self.buffer_size.col);
                     } else {
@@ -119,11 +121,15 @@ impl TerminalBuffer {
                     }
                 }
                 (None, _) => {
-                    working_styled_chunk.take().map(|sc| write_chunks.push(sc));
+                    if let Some(sc) = working_styled_chunk.take() {
+                        write_chunks.push(sc)
+                    }
                 }
             }
         }
-        working_styled_chunk.take().map(|sc| write_chunks.push(sc));
+        if let Some(sc) = working_styled_chunk.take() {
+            write_chunks.push(sc)
+        }
 
         let mut stdout = stdout();
         for write_chunk in write_chunks {
