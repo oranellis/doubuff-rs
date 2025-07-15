@@ -102,6 +102,6 @@ impl std::fmt::Display for TerminalBoxes {
                 }
             }
         }
-        write!(f, "{}", display_string)
+        write!(f, "{display_string}")
     }
 }
