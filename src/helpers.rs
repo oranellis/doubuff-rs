@@ -10,9 +10,9 @@ use crossterm::{
 use std::io::{stdout, Write};
 use terminal_vec2::Vec2;
 
-pub fn start_display() -> std::io::Result<()> {
+pub fn start_display(app_title: &str) -> std::io::Result<()> {
     stdout()
-        .queue(SetTitle("mmm"))?
+        .queue(SetTitle(app_title))?
         .queue(EnterAlternateScreen)?
         .queue(ResetColor)?
         .queue(Clear(crossterm::terminal::ClearType::All))?
